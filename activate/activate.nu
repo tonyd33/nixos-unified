@@ -42,6 +42,7 @@ def main [
   --dry-run # Dry run (don't actually activate)
 ] {
     let spec = parseFlakeOutputRef $ref
+    log info $"($ref) ($spec.user) ($spec.host)"
     if $spec.user != null {
         activate_home $spec.user $spec.host --dry-run=$dry_run
     } else {
